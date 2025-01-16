@@ -14,7 +14,7 @@ This week's assignment uses data from Tidy Tuesday ([link](https://github.com/rf
 library(rvest)
 library(dplyr)
 
-url <- "https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018"
+url <- "https://web.archive.org/web/20191224072125/https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018"
 
 # scrape the website
 url_html <- read_html(url)
@@ -23,7 +23,7 @@ url_html <- read_html(url)
 whole_table <- url_html %>% 
   html_nodes('table') %>%
   html_table(fill = TRUE) %>%
-  .[[1]]
+  .[[2]]
 
 table_content <- whole_table %>%
   select(-X1) %>% # remove redundant column
@@ -59,7 +59,7 @@ table_content <- table_content %>%
 table_content = r.table_content # Grab data from R for use in python
 ```
 
-The code above reads the data in from the [original webpage](https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018) and gets it into tabular form. 
+The code above reads the data in from the Wayback Machine's archived version of the [original webpage](https://web.archive.org/web/20191224072125/https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018) and gets it into tabular form. 
 
 Your job is to complete the following tasks:
 
