@@ -23,7 +23,7 @@ url_html <- read_html(url)
 whole_table <- url_html %>% 
   html_nodes('table') %>%
   html_table(fill = TRUE) %>%
-  .[[2]]
+  .[[1]]
 
 table_content <- whole_table %>%
   select(-X1) %>% # remove redundant column
